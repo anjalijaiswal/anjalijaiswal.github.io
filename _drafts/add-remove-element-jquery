@@ -1,0 +1,10 @@
+$('#bank_statement_type').change(function(){
+    $('#cheque').remove();
+    $('#dd').remove();
+    var cheque_option = $('<option>', {value: -1, text: 'Cheque', id: 'cheque'})
+    var dd_option = $('<option>', {value: -2, text: 'DD', id: 'dd'})
+    if($('#bank_statement_type').val() == 2){
+      $('#bank_type').append(cheque_option);
+      $('#bank_type').append(dd_option);
+    }
+  });

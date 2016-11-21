@@ -1,0 +1,57 @@
+---
+layout: default
+title: Blog
+---
+<section id="blogs" class="bg-png">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Blog</h2>
+        <h3 class="section-subheading text-muted">Some of my technical learnings</h3>
+      </div>
+    </div>
+
+      {% assign loopindex = 0 %}
+      {% for post in site.posts %}
+      {% assign loopindex = loopindex | plus: 1 %}
+      {% assign rowfinder = loopindex | modulo: 2 %}
+      {% if rowfinder == 1 %}
+      <div class="row" style="margin-bottom: 25px;">
+        <div class="col-md-6 col-sm-6">
+          <article class='blog-trailer'>
+            <header style="padding: 2px 0 8px 0px;">
+              <h4 class="service-heading text-center"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+              <span class="meta">{{ post.date | date_to_string }}</span>
+            </header>
+            <hr>
+            <div class="body">
+              <p>{{ post.excerpt }}</p>
+            </div>
+            <hr>
+            <div class="clearfix text-center">
+              <a class="btn btn-xl" href="{{ post.url }}">Read more</a>
+            </div>
+          </article>
+        </div>
+        {% elsif rowfinder == 0 %}
+        <div class="col-md-6 col-sm-6">
+          <article class='blog-trailer'>
+            <header style="padding: 2px 0 8px 0px;">
+              <h4 class="service-heading text-center"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+              <span class="meta">{{ post.date | date_to_string }}</span>
+            </header>
+            <hr>
+            <div class="body">
+              <p>{{ post.excerpt }}</p>
+            </div>
+            <hr>
+            <div class="clearfix text-center">
+              <a class="btn btn-xl" href="{{ post.url }}">Read more</a>
+            </div>
+          </article>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+  </div>
+</section>

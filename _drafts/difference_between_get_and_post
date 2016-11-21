@@ -1,0 +1,14 @@
+Use POST for destructive actions such as creation (I'm aware of the irony), editing, and deletion, because you can't hit a POST action in the address bar of your browser. Use GET when it's safe to allow a person to call an action. So a URL like:
+
+http://myblog.org/admin/posts/delete/357
+Should bring you to a confirmation page, rather than simply deleting the item. It's far easier to avoid accidents this way.
+
+POST is also more secure than GET, because you aren't sticking information into a URL. And so using GET as the method for an HTML form that collects a password or other sensitive information is not the best idea.
+
+One final note: POST can transmit a larger amount of information than GET. I don't remember the exact constraints of each, but the advantage is significant.
+
+
+http://stackoverflow.com/questions/504947/when-should-i-use-get-or-post-method-whats-the-difference-between-them
+
+
+http://www.jmarshall.com/easy/http/
